@@ -6,4 +6,20 @@
   body {
     @apply font-roboto;
   }
+
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply shadow-md rounded-lg;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-lg bg-placeholder;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-input;
+  }
 }
