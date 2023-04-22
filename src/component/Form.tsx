@@ -15,7 +15,7 @@ function Form({ data }: { data: Array<any> }) {
     });
   }, [data]);
   return (
-    <div className="p-4">
+    <div className="max-h-screen overflow-y-scroll p-4">
       <div className="text-black text-xl font-bold border-b-2 pb-2 mb-6">
         Create Pasta
       </div>
