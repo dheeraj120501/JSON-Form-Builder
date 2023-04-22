@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent } from "react";
 
 export default function Editor({
   data,
@@ -7,28 +7,9 @@ export default function Editor({
   data: string;
   setData: React.Dispatch<React.SetStateAction<string>>;
 }) {
-  const [formattedData, setFormattedData] = useState<string>();
-
-  const beautifyJSON = () => {
-    if (data && !isJSON(data)) {
-      alert("Invalid JSON - Please paste the valid JSON");
-    } else if (data) {
-      setFormattedData(JSON.stringify(data, null, 2));
-    }
-  };
-
   const storeData = (e: ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value;
     setData(value);
-  };
-
-  const isJSON = (str: string) => {
-    try {
-      JSON.parse(str);
-    } catch (e) {
-      return false;
-    }
-    return true;
   };
 
   return (
@@ -44,9 +25,8 @@ export default function Editor({
           placeholder="Paste the JSON here"
           className="text-grey-darkest flex-1 p-2 m-1 bg-transparent focus:outline-none font-mono  "
           name="inputJSON"
-          value={formattedData}
+          value={data}
           onChange={storeData}
-          // onBlur={beautifyJSON}
         />
       </div>
     </div>

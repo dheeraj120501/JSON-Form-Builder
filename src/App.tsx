@@ -1,8 +1,9 @@
 import { Form, Editor } from "./component";
 import { useState } from "react";
+import sampleData from "./data/sample.json";
 
 function App() {
-  const [data, setData] = useState<string>("");
+  const [data, setData] = useState<string>(JSON.stringify(sampleData, null, 2));
   const validJSON = (text: string): boolean => {
     try {
       JSON.parse(text);
