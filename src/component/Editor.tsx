@@ -13,7 +13,7 @@ export default function Editor({
   };
 
   return (
-    <div className="col w-full p-4 border-r-2 h-screen">
+    <div className="col w-full p-4 h-screen">
       <div className="box border rounded flex flex-col shadow bg-white h-full">
         <div className="box__title bg-grey-lighter px-3 py-2 border-b">
           <div className="flex text-lg text-grey-darker justify-center font-bold">

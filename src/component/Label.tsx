@@ -1,15 +1,15 @@
 function Label({
-  name,
+  label,
   description = "",
   required = false,
 }: {
-  name: string;
+  label: string;
   required: boolean;
   description: string;
 }) {
   return (
     <div className="flex items-center relative">
-      {name}
+      {label}
       {required && <span className="text-red-500 ml-1 text-base">*</span>}
       {description && (
         <>
@@ -18,7 +18,7 @@ function Label({
           </div>
           <div className="absolute bg-white w-[400px] py-4 px-4 border-[1px] border-placeholder rounded-md left-[120%] hidden peer-hover:block shadow-lg text-sm">
             <div className="text-black font-bold border-b-2 pb-2 mb-2">
-              {name}
+              {label}
             </div>
             <div className="text-placeholder">{description}</div>
           </div>

@@ -5,7 +5,7 @@ function Select({ input }: { input: DropDownComponent }) {
   return (
     <div className="font-bold flex justify-between items-center">
       <Label
-        name={input.label}
+        label={input.label}
         required={input.validate.required}
         description={input.description}
       />
@@ -18,8 +18,13 @@ function Select({ input }: { input: DropDownComponent }) {
                 text-input
                 "
         >
-          {input.validate.options.map(({ label }) => (
-            <option>{label}</option>
+          {input.validate.options.map(({ label, value }) => (
+            <option
+              value={value}
+              selected={input.validate.defaultValue === value}
+            >
+              {label}
+            </option>
           ))}
         </select>
       </div>

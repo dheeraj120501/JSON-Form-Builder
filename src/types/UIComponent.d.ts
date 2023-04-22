@@ -1,7 +1,14 @@
-import GroupComponent from "./GroupComponent";
-import TextFieldComponent from "./TextFieldComponent";
-import DropDownComponent from "./DropDownComponent";
+import {
+  SwitchComponent,
+  GroupComponent,
+  TextFieldComponent,
+  DropDownComponent,
+} from ".";
 
-type UIComponent = GroupComponent | TextFieldComponent | DropDownComponent;
+type UIComponent =
+  | GroupComponent
+  | TextFieldComponent
+  | DropDownComponent
+  | SwitchComponent;
 
 export default UIComponent;

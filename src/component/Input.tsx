@@ -5,7 +5,7 @@ function Input({ input }: { input: TextFieldComponent }) {
   return (
     <div className="font-bold flex justify-between items-center">
       <Label
-        name={input.label}
+        label={input.label}
         required={input.validate.required}
         description={input.description}
       />
@@ -20,6 +20,7 @@ function Input({ input }: { input: TextFieldComponent }) {
                 rounded-md
                 "
           placeholder={input.placeholder}
+          name={input.jsonKey}
         />
       </div>
     </div>

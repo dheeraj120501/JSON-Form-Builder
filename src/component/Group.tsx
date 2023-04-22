@@ -19,7 +19,7 @@ function Group({ input }: { input: GroupComponent }) {
     <div>
       <div className="text-black font-bold border-b-2 pb-2 mb-4 flex">
         <Label
-          name={input.label}
+          label={input.label}
           required={input.validate.required}
           description={input.description}
         />

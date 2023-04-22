@@ -14,7 +14,7 @@ function App() {
   };
   return (
     <div className="flex">
-      <div className="basis-1/2">
+      <div className="basis-1/2 border-r-2">
         <Editor data={data} setData={setData} />
       </div>
       <div className="basis-1/2">
