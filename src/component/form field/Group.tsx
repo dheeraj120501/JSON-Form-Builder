@@ -1,8 +1,8 @@
 import Label from "./Label";
-import GroupComponent from "../types/GroupComponent";
+import { GroupComponent } from "../../types";
 import FieldFactory from "./FieldFactory";
 import Toggle from "./Toggle";
-import { useAdvField } from "../hooks";
+import { useAdvField } from "../../hooks";
 
 function Group({ input }: { input: GroupComponent }) {
   const [isAdvField, showAdvField, toggleAdvField] = useAdvField(

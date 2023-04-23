@@ -1,5 +1,5 @@
 import Label from "./Label";
-import DropDownComponent from "../types/DropDownComponent";
+import { DropDownComponent } from "../../types";
 
 function Select({ input }: { input: DropDownComponent }) {
   return (

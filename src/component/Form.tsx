@@ -1,6 +1,6 @@
 import Slot from "./Slot";
-import Toggle from "./Toggle";
-import FieldFactory from "./FieldFactory";
+import Toggle from "./form field/Toggle";
+import FieldFactory from "./form field/FieldFactory";
 import { useAdvField } from "../hooks";
 import { UIComponent } from "../types";
 
@@ -28,7 +28,7 @@ function Form({ data }: { data: UIComponent[] }) {
             }}
           />
         ) : (
-          <div></div>
+          <></>
         )}
         <div className="flex">
           <div className="px-4 py-2 bg-white mr-2 rounded-md border-[2px] border-black cursor-pointer">

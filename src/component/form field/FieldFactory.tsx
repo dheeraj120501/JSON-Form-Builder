@@ -1,4 +1,4 @@
-import Input from "./Input";
+import TextField from "./TextField";
 import Select from "./Select";
 import Group from "./Group";
 import Switch from "./Switch";
@@ -8,7 +8,7 @@ import {
   TextFieldComponent,
   SwitchComponent,
   UIComponent,
-} from "../types";
+} from "../../types";
 
 const FieldFactory = (obj: UIComponent) => {
   switch (obj.uiType) {
@@ -17,7 +17,7 @@ const FieldFactory = (obj: UIComponent) => {
     case "Group":
       return <Group input={obj as GroupComponent} />;
     case "Input":
-      return <Input input={obj as TextFieldComponent} />;
+      return <TextField input={obj as TextFieldComponent} />;
     case "Switch":
       return <Switch input={obj as SwitchComponent} />;
     default:

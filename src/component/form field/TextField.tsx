@@ -1,7 +1,7 @@
-import TextFieldComponent from "../types/TextFieldComponent";
+import { TextFieldComponent } from "../../types";
 import Label from "./Label";
 
-function Input({ input }: { input: TextFieldComponent }) {
+function TextField({ input }: { input: TextFieldComponent }) {
   return (
     <div className="font-bold flex justify-between items-center">
       <Label
@@ -27,4 +27,4 @@ function Input({ input }: { input: TextFieldComponent }) {
   );
 }
 
-export default Input;
+export default TextField;

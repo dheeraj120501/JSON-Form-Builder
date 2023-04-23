@@ -1,4 +1,4 @@
-import { SwitchComponent } from "../types";
+import { SwitchComponent } from "../../types";
 
 function Switch({ input }: { input: SwitchComponent }) {
   return (
