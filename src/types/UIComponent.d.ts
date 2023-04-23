@@ -3,12 +3,14 @@ import {
   GroupComponent,
   TextFieldComponent,
   DropDownComponent,
+  RadioComponent,
 } from ".";
 
 type UIComponent =
   | GroupComponent
   | TextFieldComponent
   | DropDownComponent
-  | SwitchComponent;
+  | SwitchComponent
+  | RadioComponent;
 
 export default UIComponent;

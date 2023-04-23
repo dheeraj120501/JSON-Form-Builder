@@ -2,19 +2,12 @@ import Label from "./Label";
 import GroupComponent from "../types/GroupComponent";
 import FieldFactory from "./FieldFactory";
 import Toggle from "./Toggle";
-import { useEffect, useState } from "react";
+import { useAdvField } from "../hooks";
 
 function Group({ input }: { input: GroupComponent }) {
-  const [isAdvField, setIsAdvField] = useState(false);
-  const [showAdvField, setShowAdvField] = useState(false);
-  useEffect(() => {
-    setIsAdvField(false);
-    input.subParameters.forEach((e) => {
-      if (!e.validate.required) {
-        setIsAdvField(true);
-      }
-    });
-  }, [input.subParameters]);
+  const [isAdvField, showAdvField, toggleAdvField] = useAdvField(
+    input.subParameters
+  );
   return (
     <div>
       <div className="text-black font-bold border-b-2 pb-2 mb-4 flex">
@@ -36,7 +29,7 @@ function Group({ input }: { input: GroupComponent }) {
             label="Show Advanced Fields"
             labelDirection="left"
             onClick={() => {
-              setShowAdvField(!showAdvField);
+              toggleAdvField();
             }}
           />
         </div>

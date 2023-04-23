@@ -7,9 +7,10 @@ import {
   GroupComponent,
   TextFieldComponent,
   SwitchComponent,
+  UIComponent,
 } from "../types";
 
-const FieldFactory = (obj: any) => {
+const FieldFactory = (obj: UIComponent) => {
   switch (obj.uiType) {
     case "Select":
       return <Select input={obj as DropDownComponent} />;

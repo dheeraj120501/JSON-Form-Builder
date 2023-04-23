@@ -1,19 +1,12 @@
 import Slot from "./Slot";
 import Toggle from "./Toggle";
 import FieldFactory from "./FieldFactory";
-import { useState, useEffect } from "react";
+import { useAdvField } from "../hooks";
+import { UIComponent } from "../types";
 
-function Form({ data }: { data: Array<any> }) {
-  const [isAdvField, setIsAdvField] = useState(false);
-  const [showAdvField, setShowAdvField] = useState(false);
-  useEffect(() => {
-    setIsAdvField(false);
-    data.forEach((e) => {
-      if (!e.validate.required) {
-        setIsAdvField(true);
-      }
-    });
-  }, [data]);
+function Form({ data }: { data: UIComponent[] }) {
+  const [isAdvField, showAdvField, toggleAdvField] = useAdvField(data);
+
   return (
     <div className="max-h-screen overflow-y-scroll p-4">
       <div className="text-black text-xl font-bold border-b-2 pb-2 mb-6">
@@ -31,7 +24,7 @@ function Form({ data }: { data: Array<any> }) {
             label="Show Advanced Fields"
             labelDirection="left"
             onClick={() => {
-              setShowAdvField(!showAdvField);
+              toggleAdvField();
             }}
           />
         ) : (
