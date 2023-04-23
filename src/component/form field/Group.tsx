@@ -19,9 +19,13 @@ function Group({ input }: { input: GroupComponent }) {
       </div>
       {input.subParameters.map((e) => {
         if (!showAdvField && !e.validate.required) {
-          return;
+          return null;
         }
-        return <div className="mb-4">{FieldFactory(e)}</div>;
+        return (
+          <div className="mb-4" key={e.jsonKey}>
+            {FieldFactory(e)}
+          </div>
+        );
       })}
       {isAdvField && (
         <div className="text-black font-bold border-t-2 pt-4">

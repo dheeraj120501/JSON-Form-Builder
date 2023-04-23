@@ -3,6 +3,7 @@ import Toggle from "./form field/Toggle";
 import FieldFactory from "./form field/FieldFactory";
 import { useAdvField } from "../hooks";
 import { UIComponent } from "../types";
+import React from "react";
 
 function Form({ data }: { data: UIComponent[] }) {
   const [isAdvField, showAdvField, toggleAdvField] = useAdvField(data);
@@ -14,9 +15,11 @@ function Form({ data }: { data: UIComponent[] }) {
       </div>
       {data.map((d) => {
         if (!showAdvField && !d.validate.required) {
-          return;
+          return null;
         }
-        return FieldFactory(d) && <Slot>{FieldFactory(d)}</Slot>;
+        return (
+          FieldFactory(d) && <Slot key={d.jsonKey}>{FieldFactory(d)}</Slot>
+        );
       })}
       <div className="text-black font-bold border-t-2 pt-4 flex justify-between items-center">
         {isAdvField ? (
