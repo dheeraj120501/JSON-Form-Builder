@@ -2,7 +2,7 @@ import GroupComponent from "../types/GroupComponent";
 import TextFieldComponent from "./TextFieldComponent";
 import DropDownComponent from "./DropDownComponent";
 import UIComponent from "./UIComponent";
-import SwitchComponent from "./SwitchComponent";
+import CheckboxComponent from "./CheckboxComponent";
 import RadioComponent from "./RadioComponent";
 
 export type {
@@ -10,6 +10,6 @@ export type {
   TextFieldComponent,
   DropDownComponent,
   UIComponent,
-  SwitchComponent,
+  CheckboxComponent,
   RadioComponent,
 };

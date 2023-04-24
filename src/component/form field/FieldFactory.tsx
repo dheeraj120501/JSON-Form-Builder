@@ -1,12 +1,12 @@
 import TextField from "./TextField";
 import Select from "./Select";
 import Group from "./Group";
-import Switch from "./Switch";
+import Checkbox from "./Checkbox";
 import {
   DropDownComponent,
   GroupComponent,
   TextFieldComponent,
-  SwitchComponent,
+  CheckboxComponent,
   UIComponent,
 } from "../../types";
 
@@ -19,7 +19,7 @@ const FieldFactory = (obj: UIComponent) => {
     case "Input":
       return <TextField input={obj as TextFieldComponent} />;
     case "Switch":
-      return <Switch input={obj as SwitchComponent} />;
+      return <Checkbox input={obj as CheckboxComponent} />;
     default:
       return <></>;
   }

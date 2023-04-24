@@ -1,4 +1,4 @@
-interface SwitchComponent {
+interface CheckboxComponent {
   sort: number;
   label: string;
   description: string;
@@ -14,4 +14,4 @@ interface SwitchComponent {
   placeholder: string;
 }
 
-export default SwitchComponent;
+export default CheckboxComponent;
