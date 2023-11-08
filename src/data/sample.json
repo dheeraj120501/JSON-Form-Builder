@@ -16,7 +16,7 @@
   {
     "sort": 10001,
     "label": "Pasta_type",
-    "description": "Hello",
+    "description": "",
     "validate": {
       "required": true,
       "immutable": false
@@ -25,6 +25,7 @@
     "uiType": "Group",
     "icon": "",
     "level": 0,
+    "placeholder": "",
     "subParameters": [
       {
         "sort": 1,

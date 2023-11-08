@@ -22,15 +22,11 @@ function Select({ input }: { input: DropDownComponent }) {
                 text-input
                 "
             // defaultValue={input.validate.defaultValue}
+            key={input.validate.defaultValue}
             {...field}
           >
             {input.validate.options.map(({ label, value, description }) => (
-              <option
-                value={value}
-                selected={input.validate.defaultValue === value}
-                title={description}
-                key={label}
-              >
+              <option value={value} title={description} key={label}>
                 {label}
               </option>
             ))}

@@ -1,5 +1,5 @@
 import {
-  SwitchComponent,
+  CheckboxComponent,
   GroupComponent,
   TextFieldComponent,
   DropDownComponent,
@@ -10,7 +10,7 @@ type UIComponent =
   | GroupComponent
   | TextFieldComponent
   | DropDownComponent
-  | SwitchComponent
+  | CheckboxComponent
   | RadioComponent;
 
 export default UIComponent;

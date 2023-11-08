@@ -4,7 +4,12 @@ import Label from "./Label";
 import ErrorBox from "./ErrorBox";
 
 function TextField({ input }: { input: TextFieldComponent }) {
-  const [field, meta] = useField({ name: input.jsonKey });
+  const [field, meta] = useField({
+    name: input.jsonKey,
+    type: "text",
+    placeholder: input.placeholder,
+  });
+
   return (
     <>
       <div className="font-bold flex justify-between items-center">

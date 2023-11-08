@@ -5,25 +5,50 @@ import { useAdvField } from "../hooks";
 import { UIComponent } from "../types";
 import { Formik, Form as FormikForm } from "formik";
 import { useEffect, useRef } from "react";
+import * as Yup from "yup";
 
 function Form({ data }: { data: UIComponent[] }) {
   const [isAdvField, showAdvField, toggleAdvField] = useAdvField(data);
   const FormState = useRef({
     initialValues: {},
-    validate: () => {
-      return {};
-    },
+    validationSchema: Yup.object().shape({}),
   });
 
   useEffect(() => {
-    data.forEach((d) => {
+    FormState.current.initialValues = {};
+    FormState.current.validationSchema = Yup.object().shape({});
+    let vSchema = {};
+    const getDefaults = (d: {
+      required: boolean;
+      immutable: boolean;
+      defaultValue?: string;
+    }) => d.defaultValue ?? "";
+    const getFormState = (d: any) => {
       if (d.uiType !== "Group") {
         FormState.current.initialValues = {
           ...FormState.current.initialValues,
-          [d.jsonKey]: "",
+          [d.jsonKey]: getDefaults({ defaultValue: "", ...d.validate }),
         };
+        if (d.uiType === "Input" && d.validate.pattern) {
+          vSchema = {
+            ...vSchema,
+            [d.jsonKey]: Yup.string().matches(d.validate.pattern),
+          };
+        }
+      } else {
+        d.subParameters.forEach(getFormState);
       }
+    };
+    data.forEach((d: any) => {
+      getFormState(d);
     });
+
+    FormState.current.validationSchema = Yup.object().shape(vSchema);
+
+    console.log(
+      FormState.current.initialValues,
+      FormState.current.validationSchema
+    );
   }, [data]);
 
   return (
@@ -32,6 +57,8 @@ function Form({ data }: { data: UIComponent[] }) {
       onSubmit={async (values) => {
         console.log(values);
       }}
+      validationSchema={FormState.current.validationSchema}
+      enableReinitialize={true}
     >
       <FormikForm>
         <div className="max-h-screen overflow-y-scroll p-4">

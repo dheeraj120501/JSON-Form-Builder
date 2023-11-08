@@ -5,6 +5,7 @@ interface TextFieldComponent {
   validate: {
     required: boolean;
     immutable: boolean;
+    pattern?: string;
   };
   jsonKey: string;
   icon: string;
